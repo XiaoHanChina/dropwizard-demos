@@ -1,0 +1,39 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 8066
+  adminConnectors:
+    - type: http
+      port: 18066
+  requestLog:
+      appenders:
+        - type: file
+          currentLogFilename: logs/access.log
+          archivedLogFilenamePattern: logs/access-%d.log.gz
+        - type: console
+
+logging:
+  level: INFO
+  loggers:
+    com.hpe.edas: DEBUG
+  appenders:
+    - type: console
+      logFormat: "%-5p [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%t] %c: %m%n%rEx"
+    - type: file
+      currentLogFilename: logs/edas-idp.log
+      archivedLogFilenamePattern: logs/edas-idp-%d.log.gz
+      archivedFileCount: 31
+      logFormat: "%-5p [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%t] %c: %m%n%rEx"
+
+database:
+  driverClass: org.postgresql.Driver
+  user: msadmin
+  password: msadmin
+  url: jdbc:postgresql://localhost:5432/lottery
+  minSize: 5
+  maxSize: 10
+
+#jwt:
+#  expiresIn: 30
+#  hmacSecret: "abcd1234!@#$"
+
