@@ -7,14 +7,14 @@ public class UserLotteryStat {
 
     /**
      * total_count : 6
-     * wating_count : 6
+     * waiting_count : 6
      * win_count : 0
      * lose_count : 0
      * win_prize : 0.0
      */
 
     private int totalCount;
-    private int watingCount;
+    private int waitingCount;
     private int winCount;
     private int loseCount;
     private double winPrize;
@@ -27,12 +27,12 @@ public class UserLotteryStat {
         this.totalCount = totalCount;
     }
 
-    public int getWatingCount() {
-        return watingCount;
+    public int getWaitingCount() {
+        return waitingCount;
     }
 
-    public void setWatingCount(int watingCount) {
-        this.watingCount = watingCount;
+    public void setWaitingCount(int waitingCount) {
+        this.waitingCount = waitingCount;
     }
 
     public int getWinCount() {

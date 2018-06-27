@@ -110,7 +110,7 @@ CREATE TABLE "t_user" (
 
 "password" varchar COLLATE "default" NOT NULL DEFAULT NULL,
 
-"balance" numeric NOT NULL DEFAULT 10000,
+"balance" int8 NOT NULL DEFAULT 1000000,
 
 "status" int2 NOT NULL DEFAULT 0,
 
@@ -142,7 +142,7 @@ CREATE TABLE "t_user_lottery" (
 
 "result" int2,
 
-"prize" decimal,
+"prize" int8,
 
 "status" int2 DEFAULT 0,
 

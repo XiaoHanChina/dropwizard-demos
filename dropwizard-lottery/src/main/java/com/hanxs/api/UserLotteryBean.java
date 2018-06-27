@@ -25,10 +25,11 @@ public class UserLotteryBean {
     private int userId;
     private int times;
     private int result;
+    private int prize;
     private int status;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createdAt;
-    private List<Integer> contestLotteryIds;
+    private List<ContestLotteryBean> contestLotteries;
 
     public int getId() {
         return id;
@@ -78,11 +79,19 @@ public class UserLotteryBean {
         this.createdAt = createdAt;
     }
 
-    public List<Integer> getContestLotteryIds() {
-        return contestLotteryIds;
+    public int getPrize() {
+        return prize;
     }
 
-    public void setContestLotteryIds(List<Integer> contestLotteryIds) {
-        this.contestLotteryIds = contestLotteryIds;
+    public void setPrize(int prize) {
+        this.prize = prize;
+    }
+
+    public List<ContestLotteryBean> getContestLotteries() {
+        return contestLotteries;
+    }
+
+    public void setContestLotteries(List<ContestLotteryBean> contestLotteries) {
+        this.contestLotteries = contestLotteries;
     }
 }

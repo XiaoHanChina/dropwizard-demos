@@ -7,7 +7,9 @@ import com.hanxs.utils.JsonUtils;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.io.IOException;
@@ -23,6 +25,13 @@ public class ContestResource {
 
     public ContestResource(ContestDao dao) {
         contestDao = dao;
+    }
+
+    @PUT
+    @Path("/{contest_id}")
+    public void cleanContest(@PathParam("contest_id") int contestId, ContestBean bean) {
+        bean.setId(contestId);
+        contestDao.cleanContest(bean);
     }
 
     @GET

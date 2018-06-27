@@ -16,12 +16,12 @@ public abstract class UserDao {
         "\tfrom t_user u,\n" +
         "\t(\n" +
         "\t\tselect * from\n" +
-        "\t\t(select count(id) as total_count from t_user_lottery where user_id=10000000) a,\n" +
-        "\t\t(select count(id) as wating_count from t_user_lottery where user_id=10000000 and status=0) b,\n" +
-        "\t\t(select count(id) as win_count from t_user_lottery where user_id=10000000 and status=1 and result>0) c,\t\t\n" +
-        "\t\t(select count(id) as lose_count from t_user_lottery where user_id=10000000 and status=1 and result=0) d,\n" +
-        "\t\t(select sum(result) as win_prize from t_user_lottery where user_id=10000000) e\n" +
-        "\t) t where u.id=10000000\n" +
+        "\t\t(select count(id) as total_count from t_user_lottery where user_id=:id) a,\n" +
+        "\t\t(select count(id) as waiting_count from t_user_lottery where user_id=:id and status=0) b,\n" +
+        "\t\t(select count(id) as win_count from t_user_lottery where user_id=:id and status=1 and result>0) c,\t\t\n" +
+        "\t\t(select count(id) as lose_count from t_user_lottery where user_id=:id and status=1 and result=0) d,\n" +
+        "\t\t(select sum(result) as win_prize from t_user_lottery where user_id=:id) e\n" +
+        "\t) t where u.id=:id\n" +
         ")t")
     public abstract String getUser(@Bind("id") int userId);
 }
